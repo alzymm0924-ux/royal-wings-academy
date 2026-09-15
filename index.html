@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية الأجنحة الملكية للطيران</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        nav a:hover {
+            color: #ffd700;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            background-image: 
+                linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0 300 Q300 200 600 300 T1200 300" stroke="white" stroke-width="2" fill="none" opacity="0.1"/></svg>');
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .cta-button:hover {
+            background: #ffed4e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .features {
+            padding: 60px 20px;
+            background: #f9f9f9;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .departments {
+            padding: 60px 20px;
+        }
+        
+        .departments h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .dept-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        
+        .dept-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .requirements {
+            padding: 60px 20px;
+            background: #f0f0f0;
+        }
+        
+        .requirements h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        
+        .req-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .req-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .req-content li {
+            padding: 15px 0;
+            padding-right: 30px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+        
+        .req-content li:before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .contact {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 10px;
+        }
+        
+        .contact-item p {
+            font-size: 18px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #20ba5a;
+        }
+        
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: 0.3s;
+            z-index: 999;
+        }
+        
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+        
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    ✈️ أكاديمية الأجنحة الملكية
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">عن الأكاديمية</a></li>
+                        <li><a href="#departments">الأقسام</a></li>
+                        <li><a href="#requirements">الشروط</a></li>
+                        <li><a href="#contact">التواصل</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>🔥 مرحباً بك في أكاديمية الأجنحة الملكية للطيران 🔥</h1>
+            <p>أكاديمية معتمدة محليًا وعالميًا لتدريب الطلاب الناجحين</p>
+            <p style="font-size: 16px; margin: 20px 0;">الدفعة 2026-2027 📅</p>
+            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">سجل الآن 👨‍✈️</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="about">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; color: #333; margin-bottom: 40px;">مميزات الدراسة 🎯</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📜</div>
+                    <h3>شهادات معتمدة</h3>
+                    <p>شهادات محلية ودولية معتمدة من جهات مختصة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✈️</div>
+                    <h3>رحلات علمية</h3>
+                    <p>زيارات ميدانية ورحلات علمية لتعزيز التعليم</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍✈️</div>
+                    <h3>زي موحد</h3>
+                    <p>زي موحد احترافي لجميع الطلاب</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌅</div>
+                    <h3>فترات دراسة متعددة</h3>
+                    <p>مجموعات صباحية ومسائية حسب الرغبة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>نظام سمسترات</h3>
+                    <p>نظام دراسة منظم بالسمسترات</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>معايير عالمية</h3>
+                    <p>تعليم وفق أعلى المعايير الدولية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section class="departments" id="departments">
+        <div class="container">
+            <h2>الأقسام المتاحة 📋</h2>
+            <div class="departments-grid">
+                <div class="dept-card">
+                    <h3>🏛️ إدارة الجمارك</h3>
+                </div>
+                <div class="dept-card">
+                    <h3>📦 الشحن الجوي</h3>
+                </div>
+                <div class="dept-card">
+                    <h3>🏨 الفندقة والسياحة</h3>
+                </div>
+                <div class="dept-card">
+                    <h3>🧳 وكالات السفر والسياحة</h3>
+                </div>
+                <div class="dept-card">
+                    <h3>🛬 المناولة الأرضية وخدمات الركاب</h3>
+                </div>
+                <div class="dept-card">
+                    <h3>✈️ إدارة المطارات</h3>
+                </div>
+                <div class="dept-card">
+                    <h3>🗣️ الترجمة واللغات</h3>
+                </div>
+                <div class="dept-card">
+                    <h3>📢 الإعلام والعلاقات العامة</h3>
+                </div>
+                <div class="dept-card">
+                    <h3>💻 تقنية المعلومات</h3>
+                </div>
+                <div class="dept-card">
+                    <h3>💰 المحاسبة المالية والتمويل</h3>
+                </div>
+                <div class="dept-card">
+                    <h3>🤖 الذكاء الاصطناعي</h3>
+                </div>
+                <div class="dept-card">
+                    <h3>📺 الإذاعة والتلفزيون والصحافة</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements" id="requirements">
+        <div class="container">
+            <h2>⚠️ شروط التقديم والالتحاق</h2>
+            <div class="req-content">
+                <h3 style="color: #667eea; margin-bottom: 20px;">متطلبات القبول:</h3>
+                <ul>
+                    <li>قبول الحاصلين على الثانوية (أي مساق)</li>
+                    <li>لا يوجد حد أدنى معين للنسبة المئوية</li>
+                    <li>فرص محدودة لشهادة الإكمال</li>
+                    <li>التقديم متاح حالياً للدفعة 2026-2027</li>
+                </ul>
+                
+                <h3 style="color: #667eea; margin: 30px 0 20px 0;">الأوراق المطلوبة:</h3>
+                <ul>
+                    <li>صورة المؤهل (الشهادة الثانوية)</li>
+                    <li>صورة إثبات شخصية (جواز - بطاقة)</li>
+                    <li>أربع صور شخصية بحجم جواز</li>
+                </ul>
+                
+                <h3 style="color: #667eea; margin: 30px 0 20px 0;">مكان التقديم:</h3>
+                <ul>
+                    <li>الأكاديمية بالمقرن - الخرطوم</li>
+                    <li>شرق برج شركة زين</li>
+                    <li>بجانب برج التعاونية للتأمين</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>📞 تواصل معنا الآن!</h2>
+            <p style="font-size: 20px; margin-bottom: 30px;">التسجيل متاح الآن بالحضور المباشر والأونلاين</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>☎️ رقم 1</h3>
+                    <p>0912205587</p>
+                </div>
+                <div class="contact-item">
+                    <h3>☎️ رقم 2</h3>
+                    <p>0922128799</p>
+                </div>
+                <div class="contact-item">
+                    <h3>☎️ رقم 3</h3>
+                    <p>0123753705</p>
+                </div>
+            </div>
+            
+            <a href="https://wa.me/249912205587?text=مرحبا%20أريد%20التقديم%20في%20أكاديمية%20الأجنحة%20الملكية" class="whatsapp-btn" target="_blank">
+                💬 تواصل عبر واتس أب
+            </a>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-whatsapp" onclick="window.open('https://wa.me/249912205587?text=مرحبا%20أريد%20التقديم%20في%20أكاديمية%20الأجنحة%20الملكية', '_blank')">
+        💬
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 أكاديمية الأجنحة الملكية للطيران | جميع الحقوق محفوظة</p>
+        <p>معتمدة محليًا وعالميًا ✈️</p>
+    </footer>
+</body>
+</html>
